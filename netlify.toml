@@ -1,0 +1,11 @@
+# Static site: HTML lives in /docs
+# Netlify: Site settings should use this file automatically when connected to Git.
+
+[build]
+  publish = "docs"
+
+# Root URL opens the privacy policy (handy for Google Play policy URL).
+[[redirects]]
+  from = "/"
+  to = "/allinone-privacy-policy.html"
+  status = 301
