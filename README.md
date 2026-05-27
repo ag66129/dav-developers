@@ -5,15 +5,28 @@ Public static pages for **Dav Developers** (e.g. **AllInOne Service** privacy po
 ## Netlify deploy (ZIP drag & drop)
 
 1. On your computer, open this repo’s **`docs`** folder.
-2. Select **everything inside `docs`** (`index.html`, `allinone-privacy-policy.html`) → **Compress** to a `.zip`.  
-   - Do **not** put an extra parent folder with nothing inside except `docs` unless you know what you’re doing — the zip’s **root** should be the files that must appear at `https://yoursite.netlify.app/`.
-3. [Netlify](https://app.netlify.com/) → **Sites** → **Add new site** → **Deploy manually** (or **Import** → look for manual / drag-and-drop).
-4. Drag the **zip** (or the unzipped folder) onto the deploy zone.
-5. Open the live URL: **`/`** should open the policy (via `index.html` redirect), or open **`/allinone-privacy-policy.html`** directly.
+2. **Easiest (recommended):** select **`index.html` only** → compress to `.zip` → upload to Netlify.  
+   The live site **`/`** will show the full privacy policy (no redirect).
+3. **Or** select both `index.html` and `allinone-privacy-policy.html` → zip → upload.  
+   Then **`/allinone-privacy-policy.html`** also works.
+4. **Do not** zip the whole repo unless you know Netlify’s folder layout: if the zip opens as `dav-developers/docs/...`, the site root may be wrong and you get **404** or a blank site. The files that must be at the **site root** are the HTML files (not buried inside an extra empty folder).
+
+### If it still “does not work”
+
+| Problem | Fix |
+|--------|-----|
+| **404** on `/` | Upload a zip whose **root** contains `index.html` (open the zip and check: you should see `index.html` immediately, not only a folder name). |
+| **Page not found** | Netlify → **Deploys** → open latest deploy → check **Published files** list for `index.html`. |
+| **Wrong / old page** | After upload, use **Deploys → Trigger deploy → Clear cache and deploy site** (or upload a new zip with a changed file). |
+| **Play rejects URL** | Use **`https://yoursite.netlify.app/`** or **`https://yoursite.netlify.app/index.html`** — must be **https** and open in a normal browser tab. |
+
+5. [Netlify](https://app.netlify.com/) → **Sites** → **Add new site** → **Deploy manually** → drag the **zip** (or folder).
+6. Open the live URL and confirm the policy text appears.
 
 **Google Play:** use  
-`https://<your-site>.netlify.app/allinone-privacy-policy.html`  
-(or the site root `https://<your-site>.netlify.app/` after upload).
+`https://<your-site>.netlify.app/`  
+or  
+`https://<your-site>.netlify.app/allinone-privacy-policy.html`
 
 ---
 
